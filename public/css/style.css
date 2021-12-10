@@ -81,6 +81,10 @@ body, html{
 	margin-left: 15px;
 	margin-top: 15px;
 	margin-bottom: 100px;
+
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 .header-logo{
@@ -91,15 +95,17 @@ body, html{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	height: 100%;
 }
 
 .card{
-	width: 392px;
-	height: 575.75px;
+	width: 23%;
+	height: 68%;
 
 	position: relative;
 
-	margin-bottom: 100px;
+	margin-top: 80px;
 }
 
 .face {
@@ -187,17 +193,21 @@ body, html{
 }
 
 .card-header-back{
-	text-align: right;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .card-header-back-title{
-	margin-right: 115px;
-
 	font-weight: bold;
 	font-size: 12px;
 	line-height: 14px;
 
 	color: #000000;
+}
+
+.empty{
+	visibility: hidden;
 }
 
 .card-header-back-counter{
@@ -236,8 +246,6 @@ body, html{
 }
 
 .card-footer-back-content{
-	width: 310px;
-
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -256,6 +264,8 @@ body, html{
 	line-height: 12px;
 
 	color: #000000;
+
+	margin: 0 5px;
 
 	cursor: pointer;
 }
@@ -280,4 +290,54 @@ body, html{
 	width: 40px;
 
 	cursor: pointer;
+}
+
+.header-screen{
+	margin-left: 15px;
+	margin-top: 15px;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.header-screen-logo{
+	height: 45px;
+}
+
+.screen-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	height: 100%;
+}
+
+.screen-container-title{
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 42px;
+	
+	color: #000000;
+	
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.screen-container-img{
+	height: 36px;
+	margin-left: 10px;
+}
+
+.screen-container-subtitle{
+	font-size: 22px;
+	line-height: 26px;
+
+	text-align: center;
+	
+	margin-top: 16px;
+	
+	color: #000000;
 }
