@@ -1,10 +1,18 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
+import StartScreen from './components/StartScreen';
+import Cards from './components/Cards';
 
 export default function App(){
+  const [change, setChange] = useState(<StartScreen change={() => changeToCard()} />);
+
+  function changeToCard(componentChanged){
+    setChange(componentChanged = <Cards />);
+  }
+  console.log(change);
+  
   return (
     <Fragment>
-      <h1>teste</h1>
-      <small>teste1 teste2</small>
+      {change}
     </Fragment>
   );
 }

@@ -4,3 +4,280 @@
 	box-sizing: border-box;
 }
 
+body, html{
+  height: 100%;
+	font-family: 'Roboto', sans-serif;
+}
+
+.root{
+  height: 100%;
+}
+
+.start-screen{
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.brand-section{
+	height: 218px;
+}
+
+.brand-section-logo{
+	height: 100%;
+}
+
+.start-button{
+	margin-top: 180px;
+
+	width: 345px;
+	height: 72px;
+
+	text-align: center;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 23px;
+
+	color: #000000;
+
+	background-color: #FFFFFF;
+
+	border: 3px solid #FFEF61;
+	border-radius: 12px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: all 1s ease-in-out;
+
+	cursor: pointer;
+}
+
+.start-button .start-button-text{
+	margin-right: 5px;
+}
+
+.start-button:hover{
+	background-color: gray;
+
+	color: #FFFFFF;
+
+	transition: all .5s ease-in-out;
+}
+
+.start-button:active{
+	background-color: #FFFFFF;
+
+	color: #000000;
+
+	transition: all .1s ease-in-out;
+}
+
+.header{
+	margin-left: 15px;
+	margin-top: 15px;
+	margin-bottom: 100px;
+}
+
+.header-logo{
+	height: 45px;
+}
+
+.container-card{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card{
+	width: 392px;
+	height: 575.75px;
+
+	position: relative;
+
+	margin-bottom: 100px;
+}
+
+.face {
+	width: 100%;
+	height: 100%;
+
+	border-radius: 12px;
+
+	background: #FFFFFF;
+
+	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: absolute;
+
+	backface-visibility: hidden;
+	
+	transition: all .5s;
+	transform-style: preserve-3d;
+}
+
+.back-face {
+	transform: rotateY(180deg);
+}
+
+.back-face-flipped {
+	transform: rotateY(0deg);
+}
+
+.front-face-flipped {
+	transform: rotateY(-180deg);
+}
+
+.border-learned-now{
+	border: 5px solid #000000;
+}
+
+.border-dont-remember{
+	border: 5px solid #F64848;
+}
+
+.border-remembered-with-effort{
+	border: 5px solid #62DB38;
+}
+
+.border-zap{
+	border: 5px solid #FFEF61;
+}
+
+.card-content{
+	height: 95%;
+	width: 100%;
+
+	margin: 12px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card-header-front{
+	font-size: 18px;
+	line-height: 21px;
+
+	text-align: right;
+}
+
+.card-body-front{
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 33px;	
+	
+	color: #000000;
+
+	text-align: center;
+}
+
+.card-footer-front{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.card-header-back{
+	text-align: right;
+}
+
+.card-header-back-title{
+	margin-right: 115px;
+
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 14px;
+
+	color: #000000;
+}
+
+.card-header-back-counter{
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+
+	color: #000000;
+}
+
+.card-body-back{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card-body-back-response{
+	width: 294px;
+
+	font-size: 16px;
+	line-height: 19px;
+
+	color: #000000;
+}
+
+.card-footer-back{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card-newfooter-back{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.card-footer-back-content{
+	width: 310px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.card-footer-back-button{
+	width: 65px;
+	height: 48px;
+
+	border: 1px solid black;
+	border-radius: 12px;
+
+	background-color: #FFFFFF;
+
+	font-size: 10px;
+	line-height: 12px;
+
+	color: #000000;
+
+	cursor: pointer;
+}
+
+.button-learned-now{
+	border: 3px solid #000000;
+}
+
+.button-dont-remember{
+	border: 3px solid #F74848;
+}
+
+.button-remembered-with-effort{
+	border: 3px solid #62DB38;
+}
+
+.button-zap{
+	border: 3px solid #FFEF61;
+}
+
+.card-footer-img{
+	width: 40px;
+
+	cursor: pointer;
+}
