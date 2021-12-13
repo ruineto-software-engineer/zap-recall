@@ -15,6 +15,7 @@ body, html{
 
 .start-screen{
 	height: 100%;
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
@@ -486,4 +487,12 @@ ion-icon{
 	margin-bottom: 16px;
 	
 	color: #000000;
+}
+
+@media (max-width: 640px){
+	.input-content,
+	.start-button,
+	.card{
+		width: 90%;
+	}
 }
