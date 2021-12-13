@@ -1,19 +1,21 @@
 import { Fragment } from 'react';
 
 export default function FinalScreen(props) {
-  console.log(props.failureScreen);
   return(
     <Fragment>
       {props.failureScreen === true ?
-        <FailureScreen />
+          props.resultGame === 1 ?
+          <FailureScreen forgottenZaps={props.resultGame} textFlashCard="fashcard" restartedGame={props.restartingGame} />
+          :
+          <FailureScreen forgottenZaps={props.resultGame} textFlashCard="fashcards" restartedGame={props.restartingGame} />
         :
-        <SuccessScreen />
+        <SuccessScreen restartedGame={props.restartingGame} />
       }
     </Fragment>
   );
 }
 
-function FailureScreen(){
+function FailureScreen(props){
   return(
     <Fragment>
       <div className='screen-container'>
@@ -25,14 +27,19 @@ function FailureScreen(){
           Putz.. <img className='screen-container-img' alt='sad.png' src='./assets/img/sad.png' />
         </h1>
         <p className='screen-container-subtitle'>
-          Você esqueceu alguns flashcards.. <br/> Não desanime! Na próxima você consegue!
+          Você esqueceu {props.forgottenZaps} {props.textFlashCard}.. <br/> Não desanime! Na próxima você consegue!
         </p>
+
+        <button onClick={props.restartedGame} className="start-button">
+          <span className="start-button-text">Tentar novamente</span>
+          <ion-icon className="start-button-icon" name="play-forward"></ion-icon>
+        </button>
       </div>  
     </Fragment>
   );
 }
 
-function SuccessScreen(){
+function SuccessScreen(props){
   return(
     <Fragment>
       <div className='screen-container'>
@@ -44,6 +51,11 @@ function SuccessScreen(){
           PARABÉNS! <img className='screen-container-img' alt='party.png' src='./assets/img/party.png' />
         </h1>
         <p className='screen-container-subtitle'>Você não esqueceu de nenhum flashcard!</p>
+
+        <button onClick={props.restartedGame} className="start-button">
+          <span className="start-button-text">Tentar novamente</span>
+          <ion-icon className="start-button-icon" name="play-forward"></ion-icon>
+        </button>
       </div>
     </Fragment>
   );

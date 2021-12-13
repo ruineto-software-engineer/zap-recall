@@ -35,17 +35,19 @@ export default function Cards(props){
           <img className='header-logo' alt='logo-mini.png' src='./assets/img/logo-mini.png'/>
         </header>
 
-        <section className='card'>
+        <div className='card-title'>{props.cardTitle}</div>
+
+        <section className='card' data-identifier="flashcard">
           <div className={`${flip.frontFaceFlipped} face ${border}`}>
             <div className='card-content'>
-              <div className='card-header-front'>
+              <div className='card-header-front' data-identifier="counter">
                 {props.cardNumber}/{props.length}
               </div>
               <div className='card-body-front'>
                 {props.question}
               </div>
               <div className='card-footer-front'>
-                <img onClick={() => flipCard()} className='card-footer-img' alt='turn.png' src='./assets/img/turn.png' />
+                <img onClick={() => flipCard()} className='card-footer-img' alt='turn.png' src='./assets/img/turn.png' data-identifier="arrow"/>
               </div>
             </div>
           </div>
@@ -87,14 +89,14 @@ function CardFooterBack(props){
 }
 
 function NewCardFooterBack(props) {
-  function backToFront(){
+  function handleBackToFront(){
     props.flipToFront();
     props.changingNextCard();
   }
 
   return(
     <div className='card-newfooter-back'>
-      <img onClick={() => backToFront()} className='card-footer-img' alt='turn.png' src='./assets/img/turn.png' />
+      <img onClick={() => handleBackToFront()} className='card-footer-img' alt='turn.png' src='./assets/img/turn.png' data-identifier="arrow" />
     </div>    
   );
 }

@@ -4,52 +4,60 @@ import Cards from './components/Cards';
 import FinalScreen from './components/FinalScreen';
 
 export default function App(){
-  const deck = [
-    {cardNumber: "1", question: "O que é JSX?", response: "Uma extensão de linguagem do JavaScript"},
-    {cardNumber: "2", question: "O React é __", response: "uma biblioteca JavaScript para construção de interfaces"},
-    {cardNumber: "3", question: "Componentes devem iniciar com __", response: "letra maiúscula"},
-    {cardNumber: "4", question: "Podemos colocar __ dentro do JSX", response: "expressões"},
-    {cardNumber: "5", question: "O ReactDOM nos ajuda __", response: "interagindo com a DOM para colocar componentes React na mesma"},
-    {cardNumber: "6", question: "Usamos o npm para __", response: "gerenciar os pacotes necessários e suas dependências"},
-    {cardNumber: "7", question: "Usamos props para __", response: "passar diferentes informações para componentes"},
-    {cardNumber: "8", question: "Usamos estado (state) para __", response: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"},
-  ];
-  const [change, setChange] = useState(<StartScreen change={() => changeToCard()} />);
+  const [deck, setDeck] = useState([]);
+  const [change, setChange] = useState(<StartScreen changingDeck={changeDeck} deckLength={deck.length} />);
   let deckIndex = 0;
-  let failureScreen = false;
+  let goalZap = 0;
+  let checkGoalZap = 0;
 
-  function changeToCard(componentChanged){
-    setChange(componentChanged = <Cards failureScreen={changeValueScreen} changeNextCard={() => changeNextCard()} cardNumber={deck[deckIndex].cardNumber} question={deck[deckIndex].question} response={deck[deckIndex].response} length={deck.length} />);
+  function changeDeck(selectedDeck, inputValue, deckTitle) {
+    setDeck([ ...selectedDeck]);
+    setChange(<StartScreen changingDeck={changeDeck} deckLength={selectedDeck.length} />);
+    inputValidation(inputValue, selectedDeck, deckTitle);
   }
 
-  function changeNextCard(cardChanged){
-    deckIndex = deckIndex + 1;
-    if(deckIndex !== deck.length){
-      setChange(cardChanged = <Cards failureScreen={changeValueScreen} changeNextCard={() => changeNextCard()} cardNumber={deck[deckIndex].cardNumber} question={deck[deckIndex].question} response={deck[deckIndex].response} length={deck.length} />);
+  function inputValidation(inputValue, currentDeck, currentDeckTitle) {
+    goalZap = inputValue;
+    if(inputValue <= 1 || inputValue > currentDeck.length){
+      return;
     }else{
-      changeEndGame(deckIndex);
+      changeToCard('', currentDeck, currentDeckTitle);
     }
   }
 
-  function changeValueScreen(choicedBorder) { 
-    console.log("Entrei na função changeValueScreen!");
+  function changeToCard(componentChanged, actualDeck, actualTitle){
+    setChange(componentChanged = <Cards failureScreen={changeValueScreen} cardTitle={actualTitle} changeNextCard={() => changeNextCard('', actualDeck, actualTitle)} cardNumber={actualDeck[deckIndex].cardNumber} question={actualDeck[deckIndex].question} response={actualDeck[deckIndex].response} length={actualDeck.length} />);
+  }
+
+  function changeNextCard(cardChanged, actualDeck, actualTitle){
+    deckIndex = deckIndex + 1;
+    if(deckIndex !== actualDeck.length){
+      setChange(cardChanged = <Cards failureScreen={changeValueScreen} cardTitle={actualTitle} changeNextCard={() => changeNextCard()} cardNumber={actualDeck[deckIndex].cardNumber} question={actualDeck[deckIndex].question} response={actualDeck[deckIndex].response} length={actualDeck.length} />);
+    }else{
+      changeEndGame(deckIndex, actualDeck);
+    }
+  }
+
+  function changeValueScreen(choicedBorder) {    
+    if(choicedBorder === "border-zap"){
+      checkGoalZap = checkGoalZap + 1;
+    }
+  }
+
+  function changeEndGame(indexNumber, actualDeck) {
+    let forgotZaps = goalZap - checkGoalZap;
     
-    if(choicedBorder !== "border-zap"){
-      failureScreen = true;
-      console.log(failureScreen);
-    }
-  }
-
-  function changeEndGame(indexNumber) {
-    console.log("Entrei na função changeEndGame!");
-
-    if(indexNumber === deck.length){
-      if(failureScreen === true){
-        setChange(<FinalScreen failureScreen={failureScreen} />);
+    if(indexNumber === actualDeck.length){      
+      if(parseInt(goalZap) === parseInt(checkGoalZap) || parseInt(checkGoalZap) > parseInt(goalZap)){
+        setChange(<FinalScreen failureScreen={false} resultGame={forgotZaps} restartingGame={() => restartGame()} />);
       }else{
-        setChange(<FinalScreen failureScreen={failureScreen} />);
+        setChange(<FinalScreen failureScreen={true} resultGame={forgotZaps} restartingGame={() => restartGame()} />);
       }
     }
+  }
+
+  function restartGame() {
+    window.location.reload(true);
   }
 
   return (

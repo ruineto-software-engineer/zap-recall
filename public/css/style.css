@@ -30,18 +30,120 @@ body, html{
 	height: 100%;
 }
 
-.start-button{
-	margin-top: 180px;
+.input-content{
+	margin-top: 75px;
+	margin-bottom: 30px;
 
 	width: 345px;
+}
+
+.start-input{
+	width: 100%;
+	height: 49px;
+	
+	border: 1px solid #000000;
+	border-radius: 12px;
+	
+	padding: 13px;
+
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 19px;
+
+	color: #000000;
+
+	transition: all 1s ease-in-out;
+}
+
+.start-input:focus {
+	outline: 0;
+}
+
+.invalid-input{
+	border: 1px solid #dc3545;
+
+	transition: all 1s ease-in-out;
+}
+
+.invalid-feedback{
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 80%;
+	color: #dc3545;
+
+	animation: go-up 1s;
+
+	transition: all 1s ease-in-out;
+}
+
+.valid-input{
+	border: 1px solid #28a745;
+
+	transition: all 1s ease-in-out;
+}
+
+.valid-feedback{
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 80%;
+	color: #28a745;
+
+	animation: go-up 1s;
+
+	transition: all 1s ease-in-out;
+}
+
+.warning-input{
+	border: 1px solid #ffc107;
+
+	transition: all 1s ease-in-out;	
+}
+
+.warning-feedback{
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 80%;
+	color: #ffc107;
+
+	animation: go-up 1s;
+
+	transition: all 1s ease-in-out;	
+}
+
+.none-feedback{
+	animation: go-down 1s;
+
+	transition: all 1s ease-in-out;
+}
+
+@keyframes go-up {
+	0% {
+			transform: translateY(10px);
+	}
+	100% {
+			transform: translateY(0);
+	}
+}
+
+@keyframes go-down {
+	0% {
+			transform: translateY(0);
+	}
+	100% {
+			transform: translateY(-10px);
+	}
+}
+
+.start-button{
+	width: 345px;
 	height: 72px;
+
+	margin-bottom: 15px;
 
 	text-align: center;
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 23px;
-
-	color: #000000;
 
 	background-color: #FFFFFF;
 
@@ -57,14 +159,37 @@ body, html{
 	cursor: pointer;
 }
 
-.start-button .start-button-text{
+.start-button-text{
 	margin-right: 5px;
 }
 
-.start-button:hover{
-	background-color: gray;
+ion-icon{
+	font-size: 30px;
 
-	color: #FFFFFF;
+	color: #FFEF61;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+  
+  70% {
+    transform: scale(1);
+  }
+  
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+.start-button:hover{
+	background-color: #afa43c;
+
+	color: #FFEF61;
+
+	transform: scale(1);
+  animation: pulse 2s infinite;
 
 	transition: all .5s ease-in-out;
 }
@@ -74,6 +199,7 @@ body, html{
 
 	color: #000000;
 
+	transform: scale(1);
 	transition: all .1s ease-in-out;
 }
 
@@ -93,6 +219,7 @@ body, html{
 
 .container-card{
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 
@@ -105,7 +232,19 @@ body, html{
 
 	position: relative;
 
-	margin-top: 80px;
+	margin-top: 50px;
+}
+
+.card-title{
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 33px;
+
+	margin-top: 30px;
+
+	text-align: center;
+
+	color: #000000;
 }
 
 .face {
@@ -270,6 +409,10 @@ body, html{
 	cursor: pointer;
 }
 
+.card-footer-back-button:hover{
+	animation: pulse .5s;
+}
+
 .button-learned-now{
 	border: 3px solid #000000;
 }
@@ -290,6 +433,8 @@ body, html{
 	width: 40px;
 
 	cursor: pointer;
+
+	animation: pulse .5s infinite;
 }
 
 .header-screen{
@@ -338,6 +483,7 @@ body, html{
 	text-align: center;
 	
 	margin-top: 16px;
+	margin-bottom: 16px;
 	
 	color: #000000;
 }
