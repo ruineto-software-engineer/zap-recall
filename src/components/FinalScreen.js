@@ -5,9 +5,12 @@ export default function FinalScreen(props) {
     <Fragment>
       {props.failureScreen === true ?
           props.resultGame === 1 ?
-          <FailureScreen forgottenZaps={props.resultGame} textFlashCard="fashcard" restartedGame={props.restartingGame} />
+          <FailureScreen forgottenZaps={props.resultGame} textFlashCard="flashcard" restartedGame={props.restartingGame} />
           :
-          <FailureScreen forgottenZaps={props.resultGame} textFlashCard="fashcards" restartedGame={props.restartingGame} />
+            parseInt(props.golZap) === parseInt(props.resultGame) ?
+            <FailureScreen forgottenZaps="todos" textFlashCard="flashcards" restartedGame={props.restartingGame} />
+            :
+            <FailureScreen forgottenZaps={props.resultGame} textFlashCard="flashcards" restartedGame={props.restartingGame} />
         :
         <SuccessScreen restartedGame={props.restartingGame} />
       }

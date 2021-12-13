@@ -49,9 +49,9 @@ export default function App(){
     
     if(indexNumber === actualDeck.length){      
       if(parseInt(goalZap) === parseInt(checkGoalZap) || parseInt(checkGoalZap) > parseInt(goalZap)){
-        setChange(<FinalScreen failureScreen={false} resultGame={forgotZaps} restartingGame={() => restartGame()} />);
+        setChange(<FinalScreen failureScreen={false} resultGame={forgotZaps} golZap={goalZap} restartingGame={() => restartGame()} />);
       }else{
-        setChange(<FinalScreen failureScreen={true} resultGame={forgotZaps} restartingGame={() => restartGame()} />);
+        setChange(<FinalScreen failureScreen={true} resultGame={forgotZaps} golZap={goalZap} restartingGame={() => restartGame()} />);
       }
     }
   }

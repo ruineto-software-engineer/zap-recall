@@ -367,6 +367,8 @@ ion-icon{
 .card-body-back-response{
 	width: 294px;
 
+	text-align: center;
+
 	font-size: 16px;
 	line-height: 19px;
 
@@ -494,5 +496,9 @@ ion-icon{
 	.start-button,
 	.card{
 		width: 90%;
+	}
+
+	.input-content{
+		margin-top: 55px;
 	}
 }
