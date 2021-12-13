@@ -189,10 +189,17 @@ ion-icon{
 
 	color: #FFEF61;
 
-	transform: scale(1);
-  animation: pulse 2s infinite;
+	transform: scale(0.95);
 
 	transition: all .5s ease-in-out;
+}
+
+.start-button-content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	animation: pulse 2s infinite;
 }
 
 .start-button:active{

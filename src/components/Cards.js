@@ -79,10 +79,18 @@ function CardFooterBack(props){
   return(
     <div className='card-footer-back'>
       <div className='card-footer-back-content'>
-        <button onClick={() => borderScreen("border-learned-now")} className='card-footer-back-button button-learned-now'>Aprendi <br/> agora</button>
-        <button onClick={() => borderScreen("border-dont-remember")} className='card-footer-back-button button-dont-remember'>Não <br/> lembrei</button>
-        <button onClick={() => borderScreen("border-remembered-with-effort")} className='card-footer-back-button button-remembered-with-effort'>Lembrei <br/> com <br/> esforço</button>
-        <button onClick={() => borderScreen("border-zap")} className='card-footer-back-button button-zap'>Zap!</button>
+        <button onClick={() => borderScreen("border-learned-now")} className='card-footer-back-button button-learned-now'>
+          <span className='card-footer-back-button-span'>Aprendi <br/> agora</span>
+        </button>
+        <button onClick={() => borderScreen("border-dont-remember")} className='card-footer-back-button button-dont-remember'>
+          <span className='card-footer-back-button-span'>Não <br/> lembrei</span>
+        </button>
+        <button onClick={() => borderScreen("border-remembered-with-effort")} className='card-footer-back-button button-remembered-with-effort'>
+          <span className='card-footer-back-button-span'>Lembrei <br/> com <br/> esforço</span>
+        </button>
+        <button onClick={() => borderScreen("border-zap")} className='card-footer-back-button button-zap'>
+          <span className='card-footer-back-button-span'>Zap!</span>
+        </button>
       </div>
     </div>    
   );

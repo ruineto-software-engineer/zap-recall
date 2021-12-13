@@ -86,13 +86,17 @@ export default function StartScreen (props){
         </div>
 
         <button onClick={() => handleValidation(inputValue, decks.deckReact, "React")} className="start-button" data-identifier="start-zap-recall">
-          <span className="start-button-text">Praticar React</span>
-          <ion-icon className="start-button-icon" name="play-forward"></ion-icon>
+          <div className='start-button-content'>
+            <span className="start-button-text">Praticar React</span>
+            <ion-icon className="start-button-icon" name="play-forward"></ion-icon>
+          </div>
         </button>
 
         <button onClick={() => handleValidation(inputValue, decks.deckJavaScript, "JavaScript")} className="start-button" data-identifier="start-zap-recall">
-          <span className="start-button-text">Praticar JavaScript</span>
-          <ion-icon className="start-button-icon" name="play-forward"></ion-icon>
+          <div className='start-button-content'>
+            <span className="start-button-text">Praticar JavaScript</span>
+            <ion-icon className="start-button-icon" name="play-forward"></ion-icon>
+          </div>
         </button>
       </div>
     </Fragment>
